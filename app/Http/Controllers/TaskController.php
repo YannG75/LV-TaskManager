@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\task;
+use App\Task;
 use Illuminate\Http\Request;
 
 
@@ -40,29 +40,22 @@ class TaskController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param task $task
-     * @return task
+     * @param Task $task
+     * @return Task
      */
     public function show(Task $task)
     {
         return $task;
 
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\task  $task
-     * @return \Illuminate\Http\Response
-     */
     /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\task $task
+     * @param \App\Task $task
      * @return void
      */
-    public function update(Request $request, task $task)
+    public function update(Request $request, Task $task)
     {
 
         $task->update($request->all());
@@ -74,11 +67,11 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\task $task
+     * @param \App\Task $task
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
      */
-    public function destroy(task $task)
+    public function destroy(Task $task)
     {
         $task->delete();
         $task->success = 'cette tache a été supprimé !';
