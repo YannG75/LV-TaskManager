@@ -87,7 +87,6 @@
                             console.log(error);
                         });
                 }
-
             },
 
             deleteTask() {
