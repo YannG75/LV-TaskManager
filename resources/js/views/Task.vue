@@ -10,7 +10,7 @@
             </button>
         </div>
         <h1 v-if="error"> {{noTask}}</h1>
-        <div class="card mb-2">
+        <div v-if="!error" class="card mb-2">
             <section class="card-header d-flex justify-content-around align-items-center"><h2>tache n°{{task.id}}</h2>
                 <i class="far fa-edit pointer" @click="edit = !edit"></i></section>
             <section class="card-body d-flex flex-column" :class="{ 'form-group--error': $v.updatedTask.description.$error }">
@@ -22,7 +22,7 @@
             </section>
         </div>
 
-        <span class="text-danger pointer del" @click="deleteTask">supprimer cette tache.</span>
+        <span v-if="!error" class="text-danger pointer del" @click="deleteTask">supprimer cette tache.</span>
 
     </div>
 </template>

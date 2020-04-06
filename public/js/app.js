@@ -38387,101 +38387,116 @@ var render = function() {
     _vm._v(" "),
     _vm.error ? _c("h1", [_vm._v(" " + _vm._s(_vm.noTask))]) : _vm._e(),
     _vm._v(" "),
-    _c("div", { staticClass: "card mb-2" }, [
-      _c(
-        "section",
-        {
-          staticClass:
-            "card-header d-flex justify-content-around align-items-center"
-        },
-        [
-          _c("h2", [_vm._v("tache n°" + _vm._s(_vm.task.id))]),
-          _vm._v(" "),
-          _c("i", {
-            staticClass: "far fa-edit pointer",
-            on: {
-              click: function($event) {
-                _vm.edit = !_vm.edit
-              }
-            }
-          })
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "section",
-        {
-          staticClass: "card-body d-flex flex-column",
-          class: { "form-group--error": _vm.$v.updatedTask.description.$error }
-        },
-        [
-          !_vm.edit
-            ? _c("span", [_vm._v(_vm._s(_vm.updatedTask.description))])
-            : _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model.trim",
-                    value: _vm.$v.updatedTask.description.$model,
-                    expression: "$v.updatedTask.description.$model",
-                    modifiers: { trim: true }
-                  }
-                ],
-                staticClass: "form-control",
-                class: {
-                  "form-error":
-                    _vm.$v.updatedTask.description.$error ||
-                    (_vm.submitStatus === "ERROR" &&
-                      _vm.updatedTask.description === "")
-                },
-                attrs: { type: "text", width: "90%" },
-                domProps: { value: _vm.$v.updatedTask.description.$model },
+    !_vm.error
+      ? _c("div", { staticClass: "card mb-2" }, [
+          _c(
+            "section",
+            {
+              staticClass:
+                "card-header d-flex justify-content-around align-items-center"
+            },
+            [
+              _c("h2", [_vm._v("tache n°" + _vm._s(_vm.task.id))]),
+              _vm._v(" "),
+              _c("i", {
+                staticClass: "far fa-edit pointer",
                 on: {
-                  keypress: function($event) {
-                    if (
-                      !$event.type.indexOf("key") &&
-                      _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                    ) {
-                      return null
-                    }
-                    return _vm.editTask($event)
-                  },
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.$v.updatedTask.description,
-                      "$model",
-                      $event.target.value.trim()
-                    )
-                  },
-                  blur: function($event) {
-                    return _vm.$forceUpdate()
+                  click: function($event) {
+                    _vm.edit = !_vm.edit
                   }
                 }
-              }),
+              })
+            ]
+          ),
           _vm._v(" "),
-          _vm.$v.updatedTask.description.$error
-            ? _c("span", { staticClass: "error" }, [
-                _vm._v("Field is required")
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.submitStatus === "ERROR" && _vm.updatedTask.description === ""
-            ? _c("p", { staticClass: "typo__p error" }, [
-                _vm._v("Please fill the form correctly.")
-              ])
-            : _vm._e()
-        ]
-      )
-    ]),
+          _c(
+            "section",
+            {
+              staticClass: "card-body d-flex flex-column",
+              class: {
+                "form-group--error": _vm.$v.updatedTask.description.$error
+              }
+            },
+            [
+              !_vm.edit
+                ? _c("span", [_vm._v(_vm._s(_vm.updatedTask.description))])
+                : _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model.trim",
+                        value: _vm.$v.updatedTask.description.$model,
+                        expression: "$v.updatedTask.description.$model",
+                        modifiers: { trim: true }
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: {
+                      "form-error":
+                        _vm.$v.updatedTask.description.$error ||
+                        (_vm.submitStatus === "ERROR" &&
+                          _vm.updatedTask.description === "")
+                    },
+                    attrs: { type: "text", width: "90%" },
+                    domProps: { value: _vm.$v.updatedTask.description.$model },
+                    on: {
+                      keypress: function($event) {
+                        if (
+                          !$event.type.indexOf("key") &&
+                          _vm._k(
+                            $event.keyCode,
+                            "enter",
+                            13,
+                            $event.key,
+                            "Enter"
+                          )
+                        ) {
+                          return null
+                        }
+                        return _vm.editTask($event)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.$v.updatedTask.description,
+                          "$model",
+                          $event.target.value.trim()
+                        )
+                      },
+                      blur: function($event) {
+                        return _vm.$forceUpdate()
+                      }
+                    }
+                  }),
+              _vm._v(" "),
+              _vm.$v.updatedTask.description.$error
+                ? _c("span", { staticClass: "error" }, [
+                    _vm._v("Field is required")
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.submitStatus === "ERROR" && _vm.updatedTask.description === ""
+                ? _c("p", { staticClass: "typo__p error" }, [
+                    _vm._v("Please fill the form correctly.")
+                  ])
+                : _vm._e()
+            ]
+          )
+        ])
+      : _vm._e(),
     _vm._v(" "),
-    _c(
-      "span",
-      { staticClass: "text-danger pointer del", on: { click: _vm.deleteTask } },
-      [_vm._v("supprimer cette tache.")]
-    )
+    !_vm.error
+      ? _c(
+          "span",
+          {
+            staticClass: "text-danger pointer del",
+            on: { click: _vm.deleteTask }
+          },
+          [_vm._v("supprimer cette tache.")]
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
