@@ -75,7 +75,7 @@
                 if (this.$v.$invalid) {
                     this.submitStatus = 'ERROR'
                 } else {
-                    axios.put('http://127.0.0.1:8000/api/tasks/' + this.id, this.updatedTask)
+                    axios.put('api/tasks/' + this.id, this.updatedTask)
                         .then((response) => {
                             this.submitStatus = 'OK'
                             this.$v.updatedTask.description.$reset()
@@ -91,7 +91,7 @@
             },
 
             deleteTask() {
-                axios.delete('http://127.0.0.1:8000/api/tasks/' + this.id)
+                axios.delete('api/tasks/' + this.id)
                     .then((response) => {
                         if (response.status === 204) {
                             this.success.state = true
