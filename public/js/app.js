@@ -1977,7 +1977,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://127.0.0.1:8000/api/tasks').then(function (tasks) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/tasks').then(function (tasks) {
       console.log(tasks.data);
       _this.tasks = tasks.data;
     });
@@ -1993,7 +1993,7 @@ __webpack_require__.r(__webpack_exports__);
         this.submitStatus = 'ERROR';
       } else {
         console.log(this.newTask);
-        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('http://127.0.0.1:8000/api/tasks', this.newTask).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/tasks', this.newTask).then(function (response) {
           console.log(response);
 
           _this2.tasks.push(response.data);
@@ -2091,7 +2091,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/tasks/' + this.id).then(function (task) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/tasks/' + this.id).then(function (task) {
       console.log(task.data);
       _this.task = task.data;
       _this.updatedTask.description = _this.task.description;

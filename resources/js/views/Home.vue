@@ -54,7 +54,7 @@
                 }
                 else {
                     console.log(this.newTask)
-                    axios.post('http://127.0.0.1:8000/api/tasks', this.newTask)
+                    axios.post('/api/tasks', this.newTask)
                         .then((response) => {
                             console.log(response);
                             this.tasks.push(response.data)

@@ -72,7 +72,7 @@
                 <div>
                     <h1>Task Manager</h1>
 
-                    <p>
+                    <p v-if="$route.name !== 'home'">
                         <router-link :to="{ name: 'home' }">Home</router-link>
                     </p>
 
