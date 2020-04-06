@@ -2106,7 +2106,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.$v.$invalid) {
         this.submitStatus = 'ERROR';
       } else {
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a.put('api/tasks/' + this.id, this.updatedTask).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a.put('/api/tasks/' + this.id, this.updatedTask).then(function (response) {
           _this2.submitStatus = 'OK';
 
           _this2.$v.updatedTask.description.$reset();
@@ -2122,7 +2122,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteTask: function deleteTask() {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('api/tasks/' + this.id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/api/tasks/' + this.id).then(function (response) {
         if (response.status === 204) {
           _this3.success.state = true;
           setTimeout(function () {
