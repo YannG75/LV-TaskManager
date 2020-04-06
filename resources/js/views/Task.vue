@@ -59,7 +59,7 @@
             id: Number
         },
         mounted() {
-            axios.get('http://127.0.0.1:8000/api/tasks/' + this.id)
+            axios.get('/api/tasks/' + this.id)
                 .then(task => {
                     console.log(task.data)
                     this.task = task.data
